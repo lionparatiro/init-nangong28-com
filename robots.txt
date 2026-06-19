@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://lionparatiro.github.io/init-nangong28-com/sitemap.xml

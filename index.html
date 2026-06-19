@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>南宫28 · 日常查询与对照笔记</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f8f6f1;
+            font-family: "Noto Serif SC", "Source Han Serif CN", "Songti SC", Georgia, serif;
+            color: #2b2b2b;
+            line-height: 1.8;
+            padding: 2rem 1.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .page {
+            max-width: 780px;
+            width: 100%;
+            background: #fdfcf9;
+            padding: 2.8rem 2.2rem;
+            border-radius: 20px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04), 0 1px 4px rgba(0, 0, 0, 0.02);
+            transition: box-shadow 0.2s;
+        }
+
+        @media (max-width: 520px) {
+            body {
+                padding: 1.2rem 0.8rem;
+            }
+            .page {
+                padding: 1.8rem 1.2rem;
+                border-radius: 14px;
+            }
+        }
+
+        .hero {
+            margin-bottom: 2.4rem;
+            border-bottom: 1px solid #e8e2d7;
+            padding-bottom: 1.6rem;
+        }
+
+        .hero h1 {
+            font-size: 2.2rem;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            color: #1f1f1f;
+            margin-bottom: 0.3rem;
+        }
+
+        .hero .sub {
+            font-size: 1rem;
+            color: #6f6b63;
+            margin-top: 0.2rem;
+            font-style: italic;
+        }
+
+        .teaser {
+            font-size: 1.08rem;
+            color: #3e3c38;
+            margin: 1.2rem 0 1.8rem 0;
+            padding-left: 0.6rem;
+            border-left: 4px solid #c9b69a;
+            font-weight: 400;
+        }
+
+        p {
+            margin: 1.2rem 0;
+            text-align: justify;
+            word-break: break-word;
+        }
+
+        .quote-block {
+            background: #f4efe8;
+            border-left: 6px solid #a48e74;
+            padding: 1.2rem 1.6rem;
+            margin: 2rem 0;
+            border-radius: 0 12px 12px 0;
+            font-size: 0.97rem;
+            color: #3a3732;
+            box-shadow: inset 0 0 0 1px #ede7df;
+        }
+
+        .quote-block .source {
+            display: block;
+            margin-top: 0.6rem;
+            font-size: 0.9rem;
+            color: #6f6559;
+            letter-spacing: 0.02em;
+        }
+
+        .highlight-box {
+            background: #f0ece4;
+            padding: 1rem 1.6rem;
+            border-radius: 14px;
+            margin: 1.8rem 0;
+            border: 1px solid #ddd6ca;
+            font-size: 0.98rem;
+        }
+
+        .highlight-box strong {
+            color: #4a3f32;
+            font-weight: 600;
+        }
+
+        .faq-mini {
+            margin: 2.2rem 0 1rem 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.2rem;
+        }
+
+        @media (max-width: 520px) {
+            .faq-mini {
+                grid-template-columns: 1fr;
+                gap: 0.8rem;
+            }
+        }
+
+        .faq-item {
+            background: #f3f0ea;
+            padding: 0.9rem 1.2rem;
+            border-radius: 12px;
+            border-left: 3px solid #b7a48c;
+        }
+
+        .faq-item .q {
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: #2d2a25;
+            margin-bottom: 0.25rem;
+        }
+
+        .faq-item .a {
+            font-size: 0.9rem;
+            color: #4b463e;
+            line-height: 1.6;
+        }
+
+        .link-sentence {
+            background: #edebe5;
+            padding: 1rem 1.5rem;
+            border-radius: 30px;
+            display: inline-block;
+            margin: 1.4rem 0 0.2rem 0;
+            font-size: 0.98rem;
+        }
+
+        .link-sentence a {
+            color: #3f3223;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-color: #b6a186;
+            font-weight: 500;
+            transition: color 0.15s, text-decoration-color 0.15s;
+        }
+
+        .link-sentence a:hover {
+            color: #1f1610;
+            text-decoration-color: #8b7557;
+        }
+
+        .closing {
+            margin-top: 2.6rem;
+            padding-top: 1.6rem;
+            border-top: 1px solid #e3ddd2;
+            font-size: 0.94rem;
+            color: #5b554a;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .closing .note {
+            font-style: italic;
+        }
+
+        .closing .ref {
+            font-size: 0.85rem;
+            color: #7a7266;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px dashed #dcd3c7;
+            margin: 1.6rem 0;
+        }
+
+        /* 纯粹为变化而设的装饰点 */
+        .inset-note {
+            background: #faf7f2;
+            padding: 0.3rem 1rem;
+            border-radius: 30px;
+            display: inline-block;
+            font-size: 0.85rem;
+            color: #6f665a;
+            border: 1px solid #e2d9cc;
+            margin-bottom: 0.6rem;
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <div class="hero">
+        <div class="inset-note">· 日常查询 · 对照阅读 ·</div>
+        <h1>南宫28</h1>
+        <div class="sub">信息索引 · 延伸阅读笔记</div>
+    </div>
+
+    <div class="teaser">
+        从一次日常查询开始，逐渐积累起关于平台结构、界面习惯与信息归类的观察。本文围绕「南宫28」整理了几组可对照的侧面，不求全面，重在提供索引式的切入点。
+    </div>
+
+    <p>
+        在信息聚合类场景中，<strong>南宫28</strong> 常出现在用户需要快速比对数据、查阅归档条目或回溯操作记录的情境。无论是初次接触还是长期使用者，都容易在查询流程中遇到几个反复出现的节点：列表呈现逻辑、筛选条件的颗粒度，以及结果页的跳转路径。把这些节点逐一拆开来看，其实对应着三种常见的阅读需求——精确查找、范围筛选、上下文对照。
+    </p>
+
+    <p>
+        以列表页为例，多数查询入口默认按时间倒序排列，同时提供分类标签和状态标记。如果希望缩小范围，可以使用侧边栏的过滤面板，按类型或特定时段重新定位。这种设计在兼顾效率的同时，也给延伸阅读留下了空间：你可以在一个条目上停留，展开关联信息，而不必频繁往返于搜索结果之间。
+    </p>
+
+    <div class="quote-block">
+        “好的查询界面不只是帮你找到答案，还应该让你看见问题的边界。”
+        <span class="source">—— 摘自交互笔记，2024</span>
+    </div>
+
+    <p>
+        实际使用中，有几个细节值得留意。一是部分页面在移动端会合并筛选入口，需要展开才能看到全部选项；二是当关键词包含组合条件时，建议先使用基础搜索再逐步添加限定，避免结果过窄。另外，历史记录和收藏功能适合用来保存高频查询路径——下次进入时可直接沿用之前的对照框架。
+    </p>
+
+    <div class="highlight-box">
+        <strong>📌 查询小记：</strong> 如果某个条目返回的结果少于预期，试着调整时间范围或更换同义词。很多情况下，索引覆盖的颗粒度比关键词本身更影响命中率。
+    </div>
+
+    <p>
+        对于需要反复对照的场景（例如比较多个时段的数据或不同分类下的条目），可以利用浏览器的多标签页，或者直接在 <a href="https://init-nangong28.com" style="text-decoration: underline; text-underline-offset: 3px; text-decoration-color: #b6a186; font-weight: 500;">南宫28</a> 内打开并排视图。后者的优势在于上下文不中断，且所有操作都在同一会话内完成，减少重复登录或切换页面的成本。
+    </p>
+
+    <hr>
+
+    <div class="faq-mini">
+        <div class="faq-item">
+            <div class="q">Q: 查询结果页能否自定义列显示？</div>
+            <div class="a">部分列表支持通过表头右键菜单或设置面板调整可见列，具体取决于当前视图模板。</div>
+        </div>
+        <div class="faq-item">
+            <div class="q">Q: 如何保存常用查询条件？</div>
+            <div class="a">可在筛选面板右上角找到“保存方案”按钮，命名后存储至个人查询库。</div>
+        </div>
+        <div class="faq-item">
+            <div class="q">Q: 移动端与桌面端查询差异大吗？</div>
+            <div class="a">核心逻辑一致，但移动端将部分筛选折叠进抽屉，搜索栏固定在顶部。</div>
+        </div>
+        <div class="faq-item">
+            <div class="q">Q: 是否有批量导出功能？</div>
+            <div class="a">当前版本支持选中条目后导出为 CSV 或 PDF 摘要，单次上限 200 条。</div>
+        </div>
+    </div>
+
+    <div class="link-sentence">
+        → 如需进一步查阅原始界面与完整功能集，可前往 <a href="https://init-nangong28.com">南宫28</a> 对照最新版本。
+    </div>
+
+    <div class="closing">
+        <span class="note">本文仅作日常索引与延伸阅读之用</span>
+        <span class="ref">· 信息整理 · 2025.03</span>
+    </div>
+
+    <!-- 仅供变化标记，不显示可见内容 -->
+</div>
+</body>
+</html>
